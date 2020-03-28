@@ -22,29 +22,37 @@ for (var i = 0; i < drums.length; i++) {
 function playSound(letter) {
     switch (letter) {
         case "w":
-            audioTom1.play();
+            play(audioTom1);
             break;
         case "a":
-            audioTom2.play();
+            play(audioTom2);
             break;
         case "s":
-            audioTom3.play();
+            play(audioTom3);
             break;
         case "d":
-            audioTom4.play();
+            play(audioTom4);
             break;
         case "j":
-            audioSnare.play();
+            play(audioSnare);
             break;
         case "k":
-            audioCrash.play();
+            play(audioCrash);
             break;
         case "l":
-            audioKick.play();
+            play(audioKick);
             break;
         default:
             console.log("No audio file for " + this.innerHTML);
     }
+}
+
+function play(audio) {
+    if (!audio.isPaused) {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+    audio.play();
 }
 
 function animateButton(letter) {
